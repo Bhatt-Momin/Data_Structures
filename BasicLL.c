@@ -2,36 +2,29 @@
 #include<stdlib.h>
 struct node{
     int data;
-    struct node *prev;
     struct node *next;
 };
-
-void traverse(struct node *head){
-    struct node* ptr = head;
-    do{
-        printf("data is : %d\n",ptr->data);
-        ptr=ptr->next;
-    }while(ptr!=NULL);
-
+void linkedlist_traversal(struct node *ptr){
+    while(ptr!=NULL){
+        printf("Element: %d\n",ptr->data);
+        ptr = ptr->next;
+    
+    }
 }
 int main(){
-    struct node* head;
+    struct node *head;
     struct node *second;
     struct node *third;
     head = (struct node*)malloc(sizeof(struct node));
     second = (struct node*)malloc(sizeof(struct node));
     third = (struct node*)malloc(sizeof(struct node));
     head->data = 1;
-    head->prev = NULL;
     head->next = second;
     second->data = 2;
-    second->prev = head;
     second->next = third;
     third->data = 3;
-    third->prev=second;
     third->next = NULL;
 
-    traverse(head);
-
-
+    linkedlist_traversal(head);
+    return 0;
 }
